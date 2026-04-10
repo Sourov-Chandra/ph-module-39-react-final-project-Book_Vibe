@@ -1,9 +1,17 @@
+import { useContext } from 'react';
 import { useLoaderData } from 'react-router'
+import { bookContext } from '../../context/BookProvider';
 
 // const bookDetailsPromise = fetch("/booksData.json").then((res) => res.json());
 
 const BookDetails = () => {
+  const { handleMarkAsRead, storeBooks, handleAddToWishlist, wishlistBooks } =
+    useContext(bookContext);
   const bookDetails = useLoaderData();
+
+  console.log(wishlistBooks);
+  console.log(storeBooks);
+
 
   // console.log(params.id);
 
@@ -85,8 +93,16 @@ const BookDetails = () => {
             </div>
 
             <div className="flex gap-4">
-              <button className=" btn btn-default">Mark as Read</button>
-              <button className=" btn btn-primary text-white ">
+              <button
+                onClick={() => handleMarkAsRead(bookDetails)}
+                className=" btn btn-default"
+              >
+                Mark as Read
+              </button>
+              <button
+                onClick={() => handleAddToWishlist(bookDetails)}
+                className=" btn btn-primary text-white "
+              >
                 Add to Wishlist
               </button>
             </div>

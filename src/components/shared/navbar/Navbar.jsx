@@ -24,7 +24,7 @@ const Navbar = () => {
               isActive ? "text-green-500 border border-green-500" : ""
             }`
           }
-          to="/books"
+          to="/listed-books"
         >
           Listed Books
         </NavLink>
